@@ -1,21 +1,156 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Google Info</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <title>RetroMailer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script><!--Vuejs-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="script.js"></script>
+        <style>
+        .img-circle
+        {
+            border: none;
+            border-radius:15px;
+        }
+        .mar-top2
+        {
+            margin-top:5vw;
+        }
+          .mar-bottom2
+        {
+            margin-bottom: 5vw;
+        }
+        .animate1
+        {
+            position: relative;
+        }
+        .yellow
+        {
+            background: #ffffff;
+            border:none;
+            border-radius: 5px;
+            padding-top:50px;
+            padding-bottom:50px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .padding1
+        {
+            padding: 1vw;
+        }
+        .padding2
+        {
+            padding: 3.5vw;
+        }
+        .padding-l
+        {
+            padding-left: 2vw;
+        }
+        p
+        {
+            font-weight:400;
+            font-size: 14pt;
+        }
+        h1
+        {
+            font-weight: 400;
+            font-size:22pt;
+        }
+        </style>
     </head>
-    <body>
-        <center>
-        <h1 id="name"></h1>
-        <br>
-        <img id="pic" class="img-circle" width="100" height="100"/>
-        </center>
-        
+    <body  style="background: url('images/page1back1.png');background-repeat: no-repeat; background-color:#FDB74D;">
+        <div id="my-app">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top " style="border-bottom: 1px lightgray solid;" >
+                        <a  v-html="logo" class="navbar-brand" ></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">{{link1}}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">{{link2}}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">{{link3}}</a>
+                                </li>
+                            </ul>
+                            <div class="form-inline my-2 my-lg-0">
+                                <a class="navbar-brand" href="#"><img id="pic" class="img-circle" width="30" height="30" ></a>
+                                <a class="navbar-brand" href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://jaahn1998.github.io/EmailApp/Page1" title="Logout"><i class='fa fa-sign-out'></i></a>
+                            </div>
+                        </div>
+                    </nav>  
+                    <center>
+                    <br><br>
+                    <h1 id="name"></h1>
+                    <br>
+                    <p>Let's get started.</p>
+                    <br>
+                    <script>
+                            if (typeof(Storage) !== "undefined") {
+                            document.getElementById("name").innerHTML ='Hello '+localStorage.getItem("name")+'!';
+                            document.getElementById("pic").src=localStorage.getItem("pic");
+                            }
+                            else
+                            {
+                                document.getElementById("name").innerHTML="Hello!";
+                            }
+                    </script>
+                    </center>
+                    <div class="container ">
+                        <div class="row">
+                            <div class="col-sm padding1">
+                                <div class="yellow padding2">
+                                <h1>{{text1}}</h1> 
+                                <br>
+                                <p>{{text2}}</p>
+                                <br>
+                                <a href="http://localhost:10080/Retromailer/Campaign.html"><button type="button" class="btn btn-info">Create Campaign</button></a>
+                                <br>
+                                <center>
+                                  <!--  <img class="img1" style="border-radius:5px;" src="images/img1.png" width='400'/>-->
+                                </center>
+                                </div>
+                            </div>
+                            <div class="col-sm padding1">
+                                <div class="yellow padding2">
+                                <h1>{{text3}}</h1>
+                                <br>
+                                <p>{{text4}}</p>
+                                <br>
+                                <a href="http://localhost:10080/Retromailer/Statistics.php"><button type="button" class="btn btn-info">View Statistics</button></a>
+                                <br>
+                                <center>
+                                 <!--  <img class="img1" style="border-radius:5px;" src="images/img2.png" width="400"/>-->
+                                </center>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+        </div>
         <script>
-            if (typeof(Storage) !== "undefined") {
-                document.getElementById("name").innerHTML = localStorage.getItem("name");
-                document.getElementById("pic").src=localStorage.getItem("pic");
-            }
+                var app2 = new Vue({
+                        el: '#my-app',
+                        data: {
+                            logo: "<img src='images/logo1.png' width='30' height='30' class='d-inline-block align-top'/><span style='color: black;'>&nbsp;RETROMAILER</span>",
+                            link1:"Campaigns",
+                            link2:"Subscribers",
+                            link3:"Reports",
+                            text1:"Create a Campaign",
+                            text2:"Campaign emails can include brand advertisements, company demands or donations, or any email communication aimed to building loyalty, trust or brand awareness.",
+                            text3:"Campaign Statistics",
+                            text4:"Statistics are drawn from the response received from the customers to determine the overall effectiveness of the campaign. The marketing strategy can be altered to help the business grow."
+
+
+                        }
+              });
         </script>
     </body>
 </html>
