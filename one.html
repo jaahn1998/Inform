@@ -1,21 +1,121 @@
-<!DOCTYPE html>
 <html>
     <head>
-        <title>Google Info</title>
+        <title>RetroMailer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script><!--Vuejs-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Overpass">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
         <!--Google links-->
         <meta name="google-signin-client_id" content="26626733731-v2s8ai440ui9lha7pvg7t3jbqgf23h93.apps.googleusercontent.com">
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="script.js"></script>
         <style>
-        .g-signin2
-        {
-            margin-top:100px;
-            margin-left:100px;
+        body{
+            background:#FDB74D;
         }
+        .mar-top2
+          {
+            margin-top:5vw;
+          }
+          .mar-top1
+          {
+              margin-top:4vw;
+          }
+          .mar-bottom2
+          {
+            margin-bottom: 5vw;
+          }
+          .white
+          {
+              background: #ffffff;
+              border:none;
+              border-radius: 5px;
+              padding-top:50px;
+              padding-bottom:50px;
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          }
+          .g-signin2
+            {
+                margin-left: 2.8%;
+            }
+            .mar-lr
+            {
+                margin-left:5vw;
+                margin-right:5vw;
+            }
+            p
+            {
+                font-weight:400;
+                font-size: 14pt;
+            }
+            body
+            {
+                background: #F8F9FA;
+            }
+            h1
+            {
+                font-weight: 400;
+                font-size:26pt;
+            }
+            h4
+            {
+                font-weight: 400;
+            }
         </style>
     </head>
-    <body>
-        <div class="g-signin2" width="240" height="50" data-longtitle="true" data-theme="dark" data-onsuccess="onSignIn"></div>
+    <body  style="background: url('images/page1back1.png');background-repeat: no-repeat; background-color:#FDB74D;">
+        <div id="app">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top " style="border-bottom: 1px lightgray solid;" >
+                <a v-html="logo" class="navbar-brand"></a>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:10080/Retromailer/Page1.html">{{home}}</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="container" >
+                <div class="row">
+                    <div class="col-sm mar-top2 ">
+                        <h1>{{heading}}</h1><br>
+                        <p>{{para}}</p>
+                        <center>
+                        <img src="images/consumer.png" width="450"/>
+                        </center>
+                    </div>
+                    <div class="col-sm white mar-top1 mar-lr" data-aos="zoom-in-up" data-aos-duration="1500">
+                        <center>
+                        <div>
+                            <img src="images/logo2.png" width="40" height="40" /><br><br>
+                            <h4>{{brand}}</h4><br>
+                            <h1>{{msg}}</h1><br><br><br>
+                            <div class="g-signin2" data-width="240" data-height="50" data-longtitle="true" data-theme="dark" data-onsuccess="onSignIn"></div>
+                            <br>
+                        </div>
+                        </center>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+        </div>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    logo: "<img src='images/logo1.png' width='30' height='30' class='d-inline-block align-top'/><span style='color: black;'>&nbsp;RETROMAILER</span>",
+                    home: "Home",
+                    heading:"Engage More Consumers",
+                    para:"We help you to market your products and services to a much wider audience. A simple solution to all your marketing problems.",
+                    brand:"RETROMAILER",
+                    msg:"Welcome back"
+                    }
+            });
+        </script> 
+        <script>
+                AOS.init();
+        </script>  
     </body>
 </html>
