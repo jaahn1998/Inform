@@ -5,5 +5,5 @@ function onSignIn(googleUser)
         localStorage.setItem("name",profile.getName());
         localStorage.setItem("pic",profile.getImageUrl());
     }
-    window.location.replace("https://jaahn1998.github.io/Inform/two.html");
+ //   window.location.replace("https://jaahn1998.github.io/Inform/two.html");
 }
